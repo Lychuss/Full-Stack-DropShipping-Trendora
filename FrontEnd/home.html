@@ -12,10 +12,10 @@
      <header class="header">
     <img class="logo" src="Trendora.png">
     <nav class="navigation">
-      <h1>Home</h1>
-      <h1>Shops</h1>
-      <h1>Product</h1>
-      <h1>About</h1>                
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#shop" class="nav-link">Shops</a>
+      <a href="#products" class="nav-link">Product</a>
+      <a href="#about" class="nav-link">About</a>                
     </nav>
     <div class="shop">
       <h2>Shop Now</h2>
@@ -45,11 +45,14 @@
             </div>
         </div>
         <div class="shop-product">
-            <h5>Shop</h5>
+            <header class="shopping">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h5>Shop</h5>   
+            </header>
                 <section class="products-container">
                     <!-- Product Card 1 -->
                     <div class="product-card">
-                        <img src="your-image-1.jpg" alt="Product 1">
+                        <img src="carousel2.jpeg" alt="Product 1">
                         <h3>Product Name</h3>
                         <p>This is a short description of the product.</p>
                         <button>Add to Cart</button>
@@ -57,7 +60,7 @@
 
                     <!-- Product Card 2 -->
                     <div class="product-card">
-                        <img src="your-image-2.jpg" alt="Product 2">
+                        <img src="carousel1.jpeg" alt="Product 2">
                         <h3>Product Name</h3>
                         <p>This is another product description.</p>
                         <button>Add to Cart</button>
@@ -65,7 +68,7 @@
 
                     <!-- Product Card 3 -->
                     <div class="product-card">
-                        <img src="your-image-3.jpg" alt="Product 3">
+                        <img src="carousel5.jpeg" alt="Product 3">
                         <h3>Product Name</h3>
                         <p>This product is really great.</p>
                         <button>Add to Cart</button>
@@ -73,6 +76,75 @@
                 </section>
         </div>
     </section>
+    <section id="products">
+         <div class="shop-product">
+            <header class="shopping">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <h5>Product</h5>   
+            </header>
+                <section class="products-container">
+                    <div class="product-card">
+                        <img src="carousel2.jpeg" alt="Product 1">
+                        <h3>Product Name</h3>
+                        <p>This is a short description of the product.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="carousel1.jpeg" alt="Product 2">
+                        <h3>Product Name</h3>
+                        <p>This is another product description.</p>
+                        <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="carousel5.jpeg" alt="Product 3">
+                        <h3>Product Name</h3>
+                        <p>This product is really great.</p>
+                        <button>Add to Cart</button>
+                    </div>
+    </section>
+<section id="about" class="about-section">
+  <div class="about-container">
+    <!-- Content -->
+    <div class="about-content">
+      <h2 class="about-title">About Us</h2>
+      <p>
+        At <strong>Trendora</strong>, we make shopping simple and hassle-free. 
+        Our dropshipping platform connects you with trendy, affordable products 
+        delivered straight to your doorstep.
+      </p>
+
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <i class="fa-solid fa-bullseye"></i>
+          <h3>Mission</h3>
+          <p>Deliver quality products at the best prices with zero hassle.</p>
+        </div>
+
+        <div class="highlight-card">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Vision</h3>
+          <p>To be the go-to online destination for trendy lifestyle products.</p>
+        </div>
+
+        <div class="highlight-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Values</h3>
+          <p>Trust, convenience, and customer satisfaction above all.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
+<footer class="footer">
+  <div class="footer-container">
+    <p>&copy; 2025 <strong>Trendora Dropshipping</strong>. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

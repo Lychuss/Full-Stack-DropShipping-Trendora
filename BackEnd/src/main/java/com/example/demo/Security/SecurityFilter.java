@@ -3,8 +3,12 @@ package com.example.demo.Security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,23 +21,27 @@ public class SecurityFilter {
     private JwtFilterChain filter;
 
     @Bean
-    public void SecurityFilterChain securityFilterChain (HttpSecurity http){
-        return http
-                    .cors(withDefaults())
-                    .csrf()
-                    .disable()
-                    .authorizeHttpRequests()
-                    .requestMatchers("/auth/**")
-                    .permitAll()
-                    .requestMatchers("/addproduct/**")
-                    .requestMatchers("/deleteproduct/**")
-                    .requestMatchers("/addtocart/**")
-                    .requestMatchers("/buyproduct/**")
-                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                    .
+    public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception{
+        http
+                .cors(withDefaults())
+                .csrf(csrf -> csrf
+                        .disable())
+                .authorizeHttpRequests(requests -> {
+                    try {
+                        requests
+                        .requestMatchers("/auth/**")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated()
+                        .and()
+                        .sessionManagement(management -> management
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authenticationProvider(provider)
+                                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        return http.build();
     }
 }

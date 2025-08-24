@@ -1,26 +1,43 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.example.demo.Model.User;
+import com.example.demo.Service.UserSerivce;
+
+import lombok.RequiredArgsConstructor;
 
 @SpringBootTest
+@RequiredArgsConstructor
 class DemoApplicationTests {
 
-	private final UserDetails user;
+	private User user;
+
+	@Autowired
+	private UserSerivce service;
+
+	@Autowired
+	private PasswordEncoder encoder;
+
 
 	@BeforeEach
 	void builtIn(){
-		var user = UserDetails
+		user = User
 							.builder()
-							.name("Raphael")
+							.name("raphael")
 							.username("raphael2@gmail.com")
-							.password("123");
+							.password("123")
+							.build();
 	}
 
 	@Test
-	void contextLoads() {
+	void testSignUp() {
+		assertTrue(service.signUp(user));
 	}
-
 }

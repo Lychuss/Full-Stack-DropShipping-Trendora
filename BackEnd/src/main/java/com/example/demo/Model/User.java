@@ -53,4 +53,9 @@ public class User implements UserDetails{
     public String getUsername() {
         return username;
     }
+
+    public User orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
 }

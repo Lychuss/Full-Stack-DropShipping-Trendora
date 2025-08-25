@@ -7,8 +7,12 @@ spring:
 =======
     url: "jdbc:postgresql://localhost:5432/Trendora?useSSL=false&serverTimezone=UTC"
     username: postgres
+<<<<<<< HEAD
     password: YOUR_PASSWORD
 >>>>>>> 283a13c5cdb67a3817d45ddbd7dbe098382a947f
+=======
+    password: Tokitoclaude0907@
+>>>>>>> 9b57c257bc113450bd9b915c1e5ae85dd965a1b2
   jpa:
     hibernate:
       ddl-auto: update

@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/Trendora}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:Tokitoclaude0907@}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://dpg-d2mc38bipnbc73ckoot0-a.oregon-postgres.render.com:5432/trendora_db}
+    username: ${SPRING_DATASOURCE_USERNAME:trendora_db_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:oiv7goYzKnewfEHGTWgYqGyWrxxMNqf8}
+    driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update

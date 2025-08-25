@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfiguration implements WebMvcConfigurer {
     
+	//Allow the frontend to be connected to the server 
     @Override
     public void addCorsMappings(CorsRegistry registry){
         registry

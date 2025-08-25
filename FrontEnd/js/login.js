@@ -27,5 +27,9 @@ loginBtn.addEventListener("click", async () => {
     const data = await response.json();
     
     //Store the token
-    localStorage.setItem("token", JSON.stringify(data))
+    localStorage.setItem("token", JSON.stringify(data));
+
+    if(localStorage.getItem("token") != null){
+        window.location.href = "home.html";
+    }
 });

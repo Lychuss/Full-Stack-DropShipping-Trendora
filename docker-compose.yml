@@ -8,6 +8,12 @@ services:
       POSTGRES_PASSWORD: Tokitoclaude0907@
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   app:
     build: .
     environment:
@@ -15,6 +21,7 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: Tokitoclaude0907@
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8080:8080"

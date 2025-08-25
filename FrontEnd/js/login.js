@@ -3,6 +3,8 @@
 const loginUsername = document.getElementById("loginUsername");
 const loginPassword = document.getElementById("loginPassword");
 const loginBtn = document.getElementById("loginBtn");
+const usernameError = document.getElementById("usernameError");
+const passwordError = document.getElementById("passwordError");
 
 //Receive the users data and throw it 
 //in the backend 
@@ -24,12 +26,16 @@ loginBtn.addEventListener("click", async () => {
         body: JSON.stringify(login)
     });
 
-    const data = await response.json();
-    
-    //Store the token
-    localStorage.setItem("token", JSON.stringify(data));
-
-    if(localStorage.getItem("token") != null){
-        window.location.href = "home.html";
-    }
+    switch(response.status){
+        case 200:
+            const data = await response.json();
+            localStorage.setItem("token", JSON.stringify(data));
+            window.location.href = "home.html";
+            break;
+        case 403: 
+            usernameError.textContent = "Username is incorrect";
+            passwordError.textContent = "Password is incorrect";
+            break;
+        default:
+    }    
 });

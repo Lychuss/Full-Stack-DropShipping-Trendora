@@ -79,6 +79,10 @@ a:hover {
   text-decoration: underline;
 }
 
+small{
+  margin-left: 15px;
+}
+
 @media (max-width: 500px) {
   .container {
     padding: 20px;

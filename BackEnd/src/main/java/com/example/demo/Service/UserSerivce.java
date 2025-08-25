@@ -29,7 +29,7 @@ public class UserSerivce {
                                 .build();
         var check = repository.findUserByUsername(user.getUsername());
         if(check.isPresent()){
-            throw new IllegalStateException ("Email is already used!");
+            return false;
         }
         repository.save(users);
         return true;
@@ -37,8 +37,8 @@ public class UserSerivce {
 
     public TokenDTO login(User user) {
         try {
-            UsernamePasswordAuthenticationToken users = 
-            new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+            manager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+            
             var userFound = repository.findUserByUsername(user.getUsername()).get();
         
             String token = service.generateToken(userFound);
@@ -49,4 +49,6 @@ public class UserSerivce {
             throw new UserNotFoundException("Username or password is incorrect");
         }
     }
+    
+    
 }

@@ -14,7 +14,7 @@ signupBtn.addEventListener("click", async () => {
 
     console.log(JSON.stringify(signup));
 
-    const response = await fetch("http://localhost:8080/api/trendora/auth/signup", {
+    const response = await fetch("https://full-stack-dropshipping-trendora.onrender.com/api/trendora/auth/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

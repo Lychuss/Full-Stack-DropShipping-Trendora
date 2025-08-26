@@ -2,13 +2,13 @@ const productsContainer = document.getElementsByClassName("products-container")[
 
 let array = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
 
-window.addEventListener("load", getProducts());
+window.addEventListener("DOMContentLoaded", getProducts());
 
 async function getProducts() {
     const token = JSON.parse(localStorage.getItem("token"));
     
     if(token != null) {
-    const response = await fetch("http://localhost:8080/api/trendora/products", {
+    const response = await fetch("https://full-stack-dropshipping-trendora.onrender.com/api/trendora/products", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token.token}`

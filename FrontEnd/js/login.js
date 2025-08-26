@@ -18,7 +18,7 @@ loginBtn.addEventListener("click", async () => {
     console.log(login);
 
     //Send the users username and password and get the token
-    const response = await fetch("http://localhost:8080/api/trendora/auth/login", {
+    const response = await fetch("https://full-stack-dropshipping-trendora.onrender.com/api/trendora/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

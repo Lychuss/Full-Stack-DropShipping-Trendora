@@ -69,21 +69,23 @@ async function getProducts() {
         productsContainer.appendChild(shopProduct);
   }
 
-  for(const shops of shops){
+  console.log(shops.image);
+
+  for(const shop of shops){
         const shopPartner = document.createElement("div");
-        shopProduct.classList.add("product-card");
+        shopPartner.classList.add("product-card");
 
         const image = document.createElement("img");
-        image.src = shops.image;
-        image.alt = shops.name;
+        image.src = shop.image;
+        image.alt = shop.name;
 
         const name = document.createElement("h3");
-        name.textContent = shops.name;
+        name.textContent = shop.name;
 
         const button = document.createElement("button");
         button.textContent = "Follow Shop";
   
-        shopProduct.append(
+        shopPartner.append(
             image,
             name,
             button

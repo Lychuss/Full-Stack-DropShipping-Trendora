@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.ErrorHandler.UserNotFoundException;
 import com.example.demo.Model.Products;
+import com.example.demo.Model.Shops;
 import com.example.demo.Model.TokenDTO;
 import com.example.demo.Model.User;
 import com.example.demo.Repository.ProductRepository;
+import com.example.demo.Repository.ShopsRepository;
 import com.example.demo.Repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ public class UserSerivce {
     
     private final UserRepository repository;
     private final ProductRepository productRepo;
+    private final ShopsRepository shopRepo;
     private final JwtService service;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager manager;
@@ -57,6 +60,10 @@ public class UserSerivce {
     
     public List<Products> getProducts() {
     	return productRepo.findAll();
+    }
+    
+    public List<Shops> getShops(){
+    	return shopRepo.findAll();
     }
     
 }

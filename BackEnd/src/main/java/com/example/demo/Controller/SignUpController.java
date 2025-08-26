@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Model.User;
 import com.example.demo.Service.UserSerivce;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -19,7 +20,7 @@ public class SignUpController {
 	private final UserSerivce service;
 	
 	@PostMapping("/signup")
-	public ResponseEntity<Void> signUp(@RequestBody User user) {
+	public ResponseEntity<Void> signUp(@Valid @RequestBody User user) {
 		if(service.signUp(user)) {
 			return ResponseEntity.ok().build();
 		}

@@ -4,11 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,28 +14,18 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name= "addtocarts")
 @Entity
-@Table(name= "products")
-public class Products {
+public class AddToCarts {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int id; 
+	private int id;
 	
-	@NotNull
-	private String image;
+	private int quantity;
 	
-	@NotNull
-	private String name;
 	
-	@NotNull
-	private String item;
 	
-	@NotNull
-	@Size(min=50, max=100)
-	private String description;
-	
-	@NotNull
-	private int price;
-	
+	@ManyToOne
+	@JoinColumn(name= )
 }

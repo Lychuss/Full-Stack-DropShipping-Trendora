@@ -21,7 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class DemoApplicationTests {
 
-	private User user;
+	private User user1;
+	
+	private User user2;
 
 	private UserDetails userLogin;
 
@@ -36,24 +38,37 @@ class DemoApplicationTests {
 
 	@BeforeEach
 	void builtIn(){
-		user = User
-							.builder()
-							.name("raphael")
-							.username("raphael2@gmail.com")
-							.password("123")
-							.build();
+		user1 = User
+				.builder()
+				.name("raphael")
+				.username("raphael2@gmail.com")
+				.password("123")
+				.build();
+
+		user2 = User 
+				.builder()
+				.name("lyka")
+				.username("raphael2gmail.com")
+				.password("login")
+				.build();
+						
 	}
 
 	@Test
 	void testSignUp() {
-		assertTrue(service.signUp(user));
+		assertTrue(!service.signUp(user1));
+	}
+	
+	@Test 
+	void testDuplicateEmail() {
+		assertTrue(service.signUp(user1) == false);
 	}
 
 	@Test
 	void testLogin() {
-		TokenDTO token = service.login(user);
+		TokenDTO token = service.login(user1);
 		log.info(token.getToken());
 		String username = jwtService.extractUsername(token.getToken());
-		assertTrue(username.equals(user.getUsername()));
+		assertTrue(username.equals(user1.getUsername()));
 	}
 }

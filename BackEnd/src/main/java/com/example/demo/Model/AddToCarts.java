@@ -23,9 +23,4 @@ public class AddToCarts {
 	private int id;
 	
 	private int quantity;
-	
-	
-	
-	@ManyToOne
-	@JoinColumn(name= )
 }

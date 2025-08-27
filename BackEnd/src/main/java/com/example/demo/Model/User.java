@@ -40,9 +40,6 @@ public class User implements UserDetails{
     @NotNull(message= "You must have a password")
     private String password;
     
-    @OneToOne(mappedBy= "user")
-    private Cart cart;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

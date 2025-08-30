@@ -5,10 +5,12 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -54,6 +56,10 @@ public class User implements UserDetails{
     public String getUsername() {
         return username;
     }
+    
+    @OneToOne(mappedBy= "cart", cascade= CascadeType.ALL)
+    @JoinColumn(name= "cart_id")
+    private Cart cart;
 
     public User orElseThrow(Object object) {
         // TODO Auto-generated method stub
